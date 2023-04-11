@@ -103,6 +103,3 @@ dmypy.json
 chromedriver.exe
 test.ipynb
 logs
-
-chromedriver.exe
-test.ipynb
