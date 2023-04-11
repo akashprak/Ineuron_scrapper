@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block body %}
+
+    <i><h2 style="font-family:Arial;">{{name}}</h2></i>
+    <table>
+        <tr>
+            <th>Description</th>
+            <td>{{Details['description']}}</td>
+        </tr>
+        
+        {% if 'classTimings' in Details %}
+        <tr>
+            <th>Class Details</th>
+
+            <td>
+                <table>
+                    <tr>
+                        <th>Start Date</th>
+                        <td>{{Details['classTimings']['startDate']}}</td>
+                    </tr>
+                    <tr>
+                        <th>Doubt Session</th>
+                        <td>{{Details['classTimings']['doubtClearing']}}</td>
+                    </tr>
+                    <tr>
+                        <th>Timings</th>
+                        <td>{{Details['classTimings']['timings']}}</td>
+                    </tr>
+                </table>
+            </td>
+
+        </tr>
+        {% endif %}
+
+        <tr>
+            <th>Pricing</th>
+            <td>₹ {{ (Details['pricing']['IN']) or '0' }}</td>
+        </tr>
+
+        <tr>
+            <th>Course Overview</th>
+            <td>
+                <ul>
+                    
+                {% for i in Details['courseMeta'][0]['overview']['learn'] %}  
+                    <li>{{i}}</li>
+                {% endfor %}
+
+                <form method="POST">
+                    <br>
+                    <button type="submit" formaction="/{{ name.replace(' ','-') }}/curriculum">view curriculum</button>
+                </form>
+
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Course Requirements</th>
+            <td>
+                <ul>
+
+                    {% for i in Details['courseMeta'][0]['overview']['requirements'] %}
+                        <li>{{i}}</li>
+                    {% endfor %}
+
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Course Features</th>
+            <td>
+                <ul>
+
+                    {% for i in Details['courseMeta'][0]['overview']['features'] %}
+                        <li>{{i}}</li>
+                    {% endfor %}
+
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Language</th>
+            <td>{{ Details['courseMeta'][0]['overview']['language'] }}</td>
+        </tr>
+
+    <tr>
+        <th>Instructors</th>
+        <td>
+
+            <table>
+                {% for i in Details['instructorsDetails'] %}
+                
+                <tr>
+                    <th>{{ i['name'] }}</th>
+                    <td>
+                        {{ i['description'] }}
+
+                        {%  if 'social' in i %}
+                        <br><br>
+                        <ul>
+
+                            {% for media,link in i['social'].items() %}
+                            <li><i> {{media}} : {{link}} </i></li>
+                            {%  endfor %}
+                        
+                        </ul>
+                        {%  endif %}
+                    </td>
+
+                </tr>
+                
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+        
+    </table>
+
+{% endblock %}

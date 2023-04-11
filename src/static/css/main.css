@@ -1,0 +1,29 @@
+body{
+    background-color: rgba(0, 0, 0, 0.76);
+    color: rgb(246, 251, 255);
+    font-size: 20px;
+    text-align: center;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddddddf6;
+    }
+    
+th {
+        font-size: 120%;
+        text-align: center;
+        padding: 20px;
+        color:rgb(211, 234, 255);
+    }
+
+td {
+    text-align: left;
+    padding: 16px;
+    }
+
+tr:nth-child(even) {
+    background-color: hsla(0, 0%, 45%, 0.329);
+    }
