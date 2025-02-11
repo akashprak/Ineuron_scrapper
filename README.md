@@ -6,4 +6,4 @@ A webpage is created from which users can select the course and a flask app auto
 
 ### link
 The app has been deployed in a server (with limited functionality):  
-https://1sh.pythonanywhere.com
+~~https://1sh.pythonanywhere.com~~ deprecated
