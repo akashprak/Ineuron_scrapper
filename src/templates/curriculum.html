@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block body %}
+
+    <h2 style="font-family: Arial;">{{name}} - Curriculum</h2>
+    
+    <table>
+        
+        {% for i,j in data.items() %}   
+            <tr>
+                
+                <th style="text-align: left; width: 40%;">{{i}}</th>
+                
+                <td>
+                    <ol>
+                    {% for k in j %}
+                        <li style="padding: 3px;">{{k}}</li>
+                    {% endfor %}
+                    </ol>
+                </td>
+
+            </tr> 
+        {% endfor %}
+        
+    </table>
+    
+{% endblock %}

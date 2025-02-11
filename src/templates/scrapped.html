@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Ineuron Scrapper
+{% endblock %}
+
+{% block body %}
+
+    <form action="/courses" method="POST">
+    <table>
+            {% for element in cat %}
+
+            <tr>
+                <td style="text-align: center; font-size:30px; color:rgb(222, 255, 244);">{{element}}</td>
+                <td>
+                    {% for i in cat[element] %}
+
+                    <button name="id" value="{{i['id']}}" style="margin: 3px; font-size: 16px;">{{ i['title'] }}</button><br>
+
+                    {% endfor %}
+                </td>
+            </tr>
+
+            {% endfor %}
+    </table>
+    </form>
+
+{% endblock %}
